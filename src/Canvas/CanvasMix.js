@@ -78,7 +78,7 @@ export const Canvas = (props) => {
                     { uri: 'img/logo.png', x: 0.02, y: 0.01, sw: 0.2, sh: 0.2 },
                     { uri: 'img/VS.png', x: 0.35, y: 0.4 },
                     { text: "Rank 4", color: "rgba(255,255,255,1)", font: "48px Roboto", x:0.1, y: 0.3 },
-                    { text: "Socre: 22998", color: "rgba(0,255,255,1)", font: "36px Roboto", x:0.9, y: 0.68, align:'end' },
+                    { text: "Score: 22998", color: "rgba(0,255,255,1)", font: "36px Roboto", x:0.9, y: 0.68, align:'end' },
                     { qr : true, uri:'https://turnup.so/@tibbers', x: 0.05, y: 0.75, cw: 0.2 * height / width, ch: 0.2},
                 ];
                 
