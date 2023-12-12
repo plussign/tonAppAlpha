@@ -11,7 +11,9 @@ import { TransferArea } from './Ton/TransferArea';
 import { ContractTestArea } from './Ton/ContractTest';
 import { useTonClient } from './hooks/useTonClient';
 
-import { TwitterShareButton, TwitterHashtagButton } from 'react-twitter-embed';
+import { Canvas } from './Canvas/CanvasMix';
+
+import { TwitterShareButton } from 'react-twitter-embed';
 
 const TGInfo = () => {
   const [initDataUnsafe, initData] = useInitData();
@@ -92,7 +94,9 @@ function App() {
       <TonConnectArea/>
       <TransferArea/>
       <ContractTestArea/>
+      <Canvas width="400" height="600"/>
       <TGInfo/>
+
       
       <div className="centerContent">
         <div className="selfCenter spaceBetween">
