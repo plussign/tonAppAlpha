@@ -1,0 +1,39 @@
+.App {
+  text-align: center;
+  background-color: #282c34;
+  font-size: calc(10px + 2vmin);
+  min-height: 100vh;
+  color: white;
+  display: inline-block;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: block;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+label{
+  display: block;
+  text-align: left;
+  justify-content: left;
+  color: #61dafb;
+}
+
+input{ 
+  text-align: left;
+  align-items: right;
+  color: red;
+  display: block;
+  width: 96%;
+  font-size: calc(8px + 1vmin);
+}
