@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 const QRCode = require('qrcode');
 
@@ -6,6 +6,20 @@ export const Canvas = (props) => {
 
     //const imageARef = useRef(null);
     const canvasRef = useRef(null);
+
+    const [canvasDraw, setCanvasDraw] = useState(false);
+    const [canvasBlobUri, setCanvasBlobUri] = useState();
+
+    useEffect(()=>{
+        if (canvasBlobUri) {
+            var link = document.createElement("a");
+            link.download = "turnupShare.jpg";
+            link.href = canvasBlobUri;
+            link.click();
+
+            URL.revokeObjectURL(canvasBlobUri);
+        }
+    }, [canvasBlobUri]);
 
     const genQRImage = (qrContent) => {
         return new Promise((resolve, reject) => {
@@ -79,7 +93,7 @@ export const Canvas = (props) => {
                     { uri: 'img/logo.png', x: 0.02, y: 0.01, sw: 0.2, sh: 0.2 },
                     { uri: 'img/VS.png', x: 0.35, y: 0.4 },
                     { text: "Rank 4", color: "rgba(255,255,255,1)", font: "48px Roboto", x:0.1, y: 0.3 },
-                    { text: "Score: 22998", color: "rgba(0,255,255,1)", font: "36px Roboto", x:0.9, y: 0.68, align:'end' },
+                    { text: "Score: " + Math.floor(Math.random() * 100000), color: "rgba(0,255,255,1)", font: "36px Roboto", x:0.9, y: 0.68, align:'end' },
                     { qr : true, uri:'https://turnup.so/@tibbers', x: 0.05, y: 0.75, cw: 0.2 * height / width, ch: 0.2},
                 ];
                 
@@ -89,15 +103,20 @@ export const Canvas = (props) => {
                 
                 const imageQuality = 0.85
                 const imageDataURL = canvas.toDataURL("image/jpeg", imageQuality);
-                console.log(imageDataURL)
-                /*
-                const imageBlob = canvas.toBlob((blob)=>{
-                    console.log(blob)
-                },"image/jpeg", imageQuality);
-                */
+                //console.log(imageDataURL)
+
+                setCanvasDraw(true);
             }}>
             Draw Canvas
             </button>
+            {canvasDraw && <>&nbsp;&nbsp;&nbsp;<button className='NormalButton' onClick={()=>{
+                const canvas = canvasRef.current;
+
+                canvas.toBlob((blob)=>{
+                    const url = URL.createObjectURL(blob);
+                    setCanvasBlobUri(url);
+                },"image/jpeg", 0.98);
+            }}>Download</button></>}
         </p>
     );
 }
