@@ -88,6 +88,21 @@ const TonConnectArea = () => {
 };
 
 function App() {
+
+  const shareBtn = TwitterShareButton({
+    url:"https://badass-uw-test-apiv2.badass.xyz/twitter_link_query?linkId=0f4f3a7f51ce45919188f2125d789225",
+    placeholder:"Turning Up",
+    options:{
+      buttonHashtag: undefined,
+      screenName: undefined,
+      size: 'large',
+      title:'YOU HAVE TURNUP',
+      text: 'You have defeated all your hostiles and won the prize!',
+      via: 'goturnup'
+    },
+    onLoad:()=>{},
+  });
+
   return (
     <div className="App">
       <WalletArea/>
@@ -97,22 +112,9 @@ function App() {
       <Canvas width="400" height="600"/>
       <TGInfo/>
 
-      
       <div className="centerContent">
         <div className="selfCenter spaceBetween">
-          <TwitterShareButton
-            onLoad={function noRefCheck(){}}
-            options={{
-              buttonHashtag: undefined,
-              screenName: undefined,
-              size: 'large',
-              title:'YOU HAVE TURNUP',
-              text: 'You have defeated all your hostiles and won the prize!',
-              via: 'goturnup'
-            }}
-            placeholder="Turning Up"
-            url="https://d8cfz6v5up90z.cloudfront.net/twa"
-          />
+          {shareBtn}
         </div>
       </div>
     </div>

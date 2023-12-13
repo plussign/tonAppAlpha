@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+
 const QRCode = require('qrcode');
 
 export const Canvas = (props) => {
@@ -64,7 +65,7 @@ export const Canvas = (props) => {
     return (
         <p>
             <canvas ref={canvasRef} width={props.width} height={props.height} /><br/>
-            <button style={{ marginTop: "6px", padding: "12px", backgroundColor: "#069478", color: "#FFF", border: "none", borderRadius: "6px" }} onClick={async() => {
+            <button className='NormalButton' onClick={async() => {
                     
                 const canvas = canvasRef.current;
                 const context = canvas.getContext('2d');

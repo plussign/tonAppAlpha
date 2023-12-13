@@ -37,3 +37,12 @@ input{
   width: 96%;
   font-size: calc(8px + 1vmin);
 }
+
+.NormalButton{
+  margin-top: 6px; 
+  padding: 12px; 
+  background-color: #069478; 
+  color: #FFF; 
+  border: none;
+  border-radius: 6px;
+}
