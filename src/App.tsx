@@ -109,7 +109,7 @@ function App() {
       <TonConnectArea/>
       <TransferArea/>
       <ContractTestArea/>
-      <Canvas width="400" height="600"/>
+      <Canvas width="850px" height="445px" />
       <TGInfo/>
 
       <div className="centerContent">
