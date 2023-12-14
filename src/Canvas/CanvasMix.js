@@ -118,10 +118,10 @@ export const Canvas = (props) => {
                 context.clearRect(0, 0, width, height);
 
                 const imgElements = [
-                    { uri: require('../assets/images/resultImg/missionEnd1_1.png'), x: 0.705, y: 0, cw: 0.295, ch: 1 },
+                    { uri: require('../assets/images/resultImg/missionEnd1_1-s.png'), x: 0.705, y: 0, cw: 0.295, ch: 1 },
                     { uri: require('../assets/images/twittercard/card_bg.png'), x: 0, y: 0, cw: 1, ch: 1},
                     //{ uri: 'img/logo.png', x: 0.02, y: 0.01, sw: 0.2, sh: 0.2 },
-                    { text: 'Oops! Cryptos are poisoned! <br> Run away Now! <br> You CAN JOIN TURNUP to EARN more cryptos!', color: "#FFFFFFE0", font: "sans-serif", x:0.05, y: 0.45, cw:0.6, ch: 0.5 },
+                    { text: 'Oops! Cryptos are poisoned! <br> Run away Now! <br> You CAN JOIN TURNUP to EARN more cryptos!', color: "#FFFFFFE0", font: "sans-serif", x:0.05, y: 0.4, cw:0.6, ch: 0.5 },
                     //{ text: "Score: " + Math.floor(Math.random() * 100000), color: "rgba(0,255,255,1)", font: "36px Roboto", x:0.9, y: 0.68, align:'end' },
                     { qr : true, uri:'https://turnup.so/@tibbers', x: 0.51, y: 0.05, cw: 0.3 * height / width, ch: 0.3},
                 ];
