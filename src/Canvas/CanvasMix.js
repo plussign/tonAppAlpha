@@ -1,7 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
+import { DrawMultilineText } from './canvas-multiline-text-mod';
 
 const QRCode = require('qrcode');
-const drawMultilineText = require('./canvas-multiline-text-mod')
 
 export const Canvas = (props) => {
 
@@ -10,6 +10,9 @@ export const Canvas = (props) => {
 
     const [canvasDraw, setCanvasDraw] = useState(false);
     const [canvasBlobUri, setCanvasBlobUri] = useState();
+
+    const [desc, setDesc] = useState('Oops! Cryptos are poisoned! <br> Run away Now! <br> You CAN JOIN TURNUP to EARN more cryptos!');
+    const [qrLink, setQrLink] = useState('https://turnup.so/@tibbers');
 
     useEffect(()=>{
         if (canvasBlobUri) {
@@ -85,7 +88,7 @@ export const Canvas = (props) => {
             ctx.fillStyle = opt.color || 'white';
             //ctx.fillText(opt.text, width * opt.x, height * opt.y);
 
-            const fontSizeUsed = drawMultilineText(
+            const fontSizeUsed = DrawMultilineText(
                 ctx,
                 opt.text,
                 {
@@ -107,7 +110,9 @@ export const Canvas = (props) => {
 
     return (
         <p>
-            <canvas ref={canvasRef} width={props.width} height={props.height} style={{width:"90%", borderRadius:"22px"}}/><br/>
+            <label>Desc:  <input value={desc} onChange={e => setDesc(e.target.value)} /></label>
+            <label>QRLink:  <input value={qrLink} onChange={e => setQrLink(e.target.value)} /></label><br/>
+            <canvas ref={canvasRef} width={props.width} height={props.height} style={{width:"90%", borderRadius:"0.8em"}}/><br/>
             <button className='NormalButton' onClick={async() => {
                     
                 const canvas = canvasRef.current;
@@ -119,11 +124,11 @@ export const Canvas = (props) => {
 
                 const imgElements = [
                     { uri: require('../assets/images/resultImg/missionEnd1_1-s.png'), x: 0.705, y: 0, cw: 0.295, ch: 1 },
-                    { uri: require('../assets/images/twittercard/card_bg.png'), x: 0, y: 0, cw: 1, ch: 1},
+                    { uri: require('../assets/images/twittercard/card_bg.webp'), x: 0, y: 0, cw: 1, ch: 1},
                     //{ uri: 'img/logo.png', x: 0.02, y: 0.01, sw: 0.2, sh: 0.2 },
-                    { text: 'Oops! Cryptos are poisoned! <br> Run away Now! <br> You CAN JOIN TURNUP to EARN more cryptos!', color: "#FFFFFFE0", font: "sans-serif", x:0.05, y: 0.4, cw:0.6, ch: 0.5 },
+                    { text: desc, color: "#FFFFFFE0", font: "sans-serif", x:0.05, y: 0.4, cw:0.6, ch: 0.5 },
                     //{ text: "Score: " + Math.floor(Math.random() * 100000), color: "rgba(0,255,255,1)", font: "36px Roboto", x:0.9, y: 0.68, align:'end' },
-                    { qr : true, uri:'https://turnup.so/@tibbers', x: 0.51, y: 0.05, cw: 0.3 * height / width, ch: 0.3},
+                    { qr : true, uri:qrLink, x: 0.51, y: 0.05, cw: 0.3 * height / width, ch: 0.3},
                 ];
                 
                 for (let i = 0; i < imgElements.length; i++ ){

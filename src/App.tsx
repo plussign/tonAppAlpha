@@ -14,7 +14,7 @@ import { useTonClient } from './hooks/useTonClient';
 import { Canvas } from './Canvas/CanvasMix';
 
 import { TwitterShareButton } from 'react-twitter-embed';
-
+/*
 const TGInfo = () => {
   const [initDataUnsafe, initData] = useInitData();
 
@@ -86,11 +86,11 @@ const TonConnectArea = () => {
     </div>
   );
 };
-
+*/
 function App() {
 
   const shareBtn = TwitterShareButton({
-    url:"https://badass-uw-test-apiv2.badass.xyz/twitter_link_query?linkId=0f4f3a7f51ce45919188f2125d789225",
+    url:"https://turnup.so/s/h2cxzc",
     placeholder:"Turning Up",
     options:{
       buttonHashtag: undefined,
@@ -103,14 +103,17 @@ function App() {
     onLoad:()=>{},
   });
 
-  return (
-    <div className="App">
+  /*
       <WalletArea/>
       <TonConnectArea/>
       <TransferArea/>
       <ContractTestArea/>
       <Canvas width="850px" height="445px" />
       <TGInfo/>
+ */
+  return (
+    <div className="App">
+      <Canvas width="850px" height="445px" />
 
       <div className="centerContent">
         <div className="selfCenter spaceBetween">

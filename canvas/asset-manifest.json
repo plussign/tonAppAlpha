@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "./static/css/main.2eb9378e.css",
+    "main.js": "./static/js/main.03b8dc55.js",
+    "static/media/missionEnd1_1-s.png": "./static/media/missionEnd1_1-s.07809baec508bfe0224f.png",
+    "static/media/card_bg.png": "./static/media/card_bg.f4d0c056e349023cbc7d.png",
+    "index.html": "./index.html",
+    "main.2eb9378e.css.map": "./static/css/main.2eb9378e.css.map",
+    "main.03b8dc55.js.map": "./static/js/main.03b8dc55.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2eb9378e.css",
+    "static/js/main.03b8dc55.js"
+  ]
+}

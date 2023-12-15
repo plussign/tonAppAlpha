@@ -1,4 +1,6 @@
-module.exports = function(ctx, text, opts) {
+const words_array = require('words-array')
+
+export const DrawMultilineText = function(ctx, text, opts) {
 
 	// Default options
 	if(!opts)
@@ -26,8 +28,8 @@ module.exports = function(ctx, text, opts) {
 	if (!opts.logFunction)
 		opts.logFunction = function(message) { console.log(message) }
 
+	const words = words_array(text)
 
-	const words = require('words-array')(text)
 	if (opts.verbose) opts.logFunction('Text contains ' + words.length + ' words')
 	var lines = []
 
@@ -85,5 +87,4 @@ module.exports = function(ctx, text, opts) {
 
 	// Returns font size
 	return fontSize
-
 }
